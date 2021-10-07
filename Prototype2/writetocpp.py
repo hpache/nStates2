@@ -3,6 +3,7 @@
 # The purpose of this file is to write a cpp matrix and vector file and get them ready to 
 # be used by a main.cpp file
 
+from turtle import clear
 from nStates import *
 from sympy import *
 import numpy as np
@@ -273,3 +274,27 @@ vectorCPP = open("bVector.cpp","w")
 vectorCPP.writelines(vectorCPPFullLines)
 vectorCPP.close()
 
+
+''' Write matrix.cpp file '''
+
+# Again, header files are set, just need methods and constructors
+
+# Getting matrix in the eigenformat
+eigenMatrix = parseArray(dimension, symbolicMatrix, vector = False)
+
+# Writing full constructor method
+matrixFullConstructor = ["\n\n\nfinalMatrix::" + constructor[5:-2] + "{\n", "   n = n;\n"]
+# Writing full function method
+matrixFullFunction = ["SparseMatrix<dcomplex> finalMatrix::" + function[26:-2] + "{\n"] + eigenMatrix + ["   return A;\n", "}"]
+
+for i in range(len(constants)):
+    matrixConstantString = "{}".format(constants[i])
+    matrixFullConstructor.append("   " + matrixConstantString + " = " + matrixConstantString + ";\n")
+matrixFullConstructor.append("   SparseMatrix<dcomplex> A(n,n);\n")
+matrixFullConstructor.append("}\n\n")
+
+matrixCPPFullLines = ["#include \"superMatrix.h\"\n"] + headerLines + matrixFullConstructor + matrixFullFunction
+
+matrixCPP = open("superMatrix.cpp", "w")
+matrixCPP.writelines(matrixCPPFullLines)
+matrixCPP.close()
