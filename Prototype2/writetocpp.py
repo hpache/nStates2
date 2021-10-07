@@ -285,7 +285,7 @@ eigenMatrix = parseArray(dimension, symbolicMatrix, vector = False)
 # Writing full constructor method
 matrixFullConstructor = ["\n\n\nfinalMatrix::" + constructor[5:-2] + "{\n", "   n = n;\n"]
 # Writing full function method
-matrixFullFunction = ["SparseMatrix<dcomplex> finalMatrix::" + function[26:-2] + "{\n"] + eigenMatrix + ["   return A;\n", "}"]
+matrixFullFunction = ["SparseMatrix<dcomplex> finalMatrix::" + function[26:-2] + "{\n"] + eigenMatrix + ["   A.makeCompressed();\n","   return A;\n", "}"]
 
 for i in range(len(constants)):
     matrixConstantString = "{}".format(constants[i])

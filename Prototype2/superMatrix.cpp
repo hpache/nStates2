@@ -53,5 +53,6 @@ SparseMatrix<dcomplex> finalMatrix::M(double delta_p, double delta_c, double k_p
    A.coeffRef(7,1) = dcomplex(0,1.0*Omega_12);
    A.coeffRef(7,6) = dcomplex(0,1.0*Omega_01);
    A.coeffRef(7,7) = dcomplex(-0.5*Gamma_10-0.5*Gamma_21,1.0*(delta_p+k_p*v-(delta_c+delta_p-k_c*v+k_p*v)));
+   A.makeCompressed();
    return A;
 }
