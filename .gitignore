@@ -3,3 +3,6 @@
 
 # Ignore text files
 *.txt 
+
+# Ignore csv files
+*.csv
