@@ -150,7 +150,7 @@ transitions = [(2,1),(1,0)]
 static = {Symbol('rho_00') : 1 - Symbol('rho_11') - Symbol('rho_22')}
 
 # Initializing constants
-constants = [dp0, dc0, kP, kC, v, rabi01, rabi12]
+constants = [dp0, dc0, kP, kC, v, rabi01, rabi12] + [Symbol("Gamma_{}{}".format(pair[0],pair[1])) for pair in transitions]
 
 # Initializing three level model
 threeLevel = States(numberStates = 3, hamiltonian = H, staticDictionary = static)
