@@ -6,3 +6,13 @@
 
 # Ignore csv files
 *.csv
+
+# Ignore any cpp files
+*.cpp
+# Ignore any h files
+*.h
+
+# Ignore other files
+__pycache__
+
+.DS_Store
