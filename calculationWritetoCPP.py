@@ -122,7 +122,7 @@ main = main + ["   finalVector b(n, Omega_01);\n"]
 # Start calculation body 2
 main = main + ["   for (int i = 0; i < numberDetunings; i++){\n", "      coupling = initialDetuning + i * dc;\n",
                "      for (int k = 0; k < numberVelocity; k++){\n", 
-               "         vAtom = initialVelocity + k * dv;\n", 
+               "         v = initialVelocity + k * dv;\n", 
                "         weight = 1 / (sqrt(M_PI) * u) * exp(-1.0 * (pow(vAtom, 2) / pow(u, 2))) * dv;\n",
                "         finalMatrix BMatrix(int n, double delta_p, double delta_c, double k_p, double k_c, double v, double Omega_01, double Omega_12, double Gamma_21, double Gamma_10);\n",
                "         B = BMatrix.M(double delta_p, double delta_c, double k_p, double k_c, double v, double Omega_01, double Omega_12, double Gamma_21, double Gamma_10);\n",
